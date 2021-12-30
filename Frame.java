@@ -1,61 +1,51 @@
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.BorderLayout;
 import javax.swing.JFrame;
-import javax.swing.BorderFactory;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
+import javax.swing.JPanel;
 
-public class Frame extends JFrame implements ActionListener {
-    JButton adminButton;
-    JButton userButton;
+//import Buttons.*;
 
-    Frame() {
-        adminButton = new JButton("Admin Log in");
-        userButton = new JButton("User Log in");
+public class Frame extends JFrame {
+    JPanel topPanel;
+    JPanel rightPanel;
+    JPanel leftPanel;
+    JPanel bottomPanel;
 
-        setUpAdminButton();
-        setUpUserButton();
+    CenterPanel centerPanel;
 
+    Frame(String title) {
+        super(title);
+
+        setUpFrame();
+        setUpPanels();
+    }
+
+    public void setUpFrame() {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setResizable(false);
-        this.setLayout(null);
-        this.setSize(800,600);  // width = 800, height = 600
+        this.setLayout(new BorderLayout());
+        this.setSize(1000, 800);  // width = 1000, height = 800
         this.setVisible(true);
-        this.add(adminButton);
-        this.add(userButton);
     }
+    
+    public void setUpPanels() {
+        topPanel = new JPanel();
+        rightPanel = new JPanel();
+        leftPanel = new JPanel();
+        bottomPanel = new JPanel();
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        if(e.getSource() == adminButton)
-            System.out.println("Admin log in");
+        topPanel.setPreferredSize(new Dimension(100, 100));
+        rightPanel.setPreferredSize(new Dimension(10, 100));
+        leftPanel.setPreferredSize(new Dimension(10, 100));
+        bottomPanel.setPreferredSize(new Dimension(100, 10));
 
-        else if(e.getSource() == userButton)
-            System.out.println("User log in");
-    }
+        this.add(topPanel, BorderLayout.NORTH);
+        this.add(rightPanel, BorderLayout.EAST);
+        this.add(leftPanel, BorderLayout.WEST);
+        this.add(bottomPanel, BorderLayout.SOUTH);
 
-    public void setUpAdminButton() {
-        ImageIcon adminButtonIcon = new ImageIcon("Images/adminIcon.png");
-
-        adminButton.setBounds(500, 300, 150, 60);
-        adminButton.addActionListener(this);
-        adminButton.setFocusable(false);    // Removes highlight on text
-        adminButton.setForeground(Color.darkGray);  //set text color
-        adminButton.setBackground(Color.lightGray);
-        adminButton.setBorder(BorderFactory.createEtchedBorder());
-        adminButton.setIcon(adminButtonIcon);
-    }
-
-    public void setUpUserButton() {
-        ImageIcon userButtonIcon = new ImageIcon("Images/userIcon.png");
-
-        userButton.setBounds(100, 300, 150, 60);
-        userButton.addActionListener(this);
-        userButton.setFocusable(false); // Removes highlight on text
-        userButton.setForeground(Color.darkGray);   //set text color
-        userButton.setBackground(Color.lightGray);
-        userButton.setBorder(BorderFactory.createEtchedBorder());
-        userButton.setIcon(userButtonIcon);
+        centerPanel = new CenterPanel();
+        this.add(centerPanel, BorderLayout.CENTER);
     }
 } // End class
