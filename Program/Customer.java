@@ -10,7 +10,7 @@ public class Customer extends Account {
         cart = new ShoppingCart();
     }
 
-    Customer(String name, int accountNum, int accountPin) {
+    Customer(String name, String accountNum, String accountPin) {
         super(name, accountNum, accountPin);
         cart = new ShoppingCart();
     }
@@ -28,7 +28,6 @@ public class Customer extends Account {
 
         System.out.println("\nUser was not found");
         helper.clearCredentials(account);
-        helper.Wait();
         return false;
     }
 }

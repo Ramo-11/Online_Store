@@ -5,10 +5,9 @@ import java.util.*;
 
 public class DataController {
     public void downloadAdminsData(ArrayList<Admin> admins) {
-        int accountNum; 
+        String accountNum; 
         String name;
-        int accountPin;
-        String endLine;
+        String accountPin;
 
         try {
             File theFile = new File("listAdmins.txt");
@@ -16,13 +15,8 @@ public class DataController {
             
             while (input.hasNextLine()) {
                 name = input.nextLine();
-                if(!input.hasNextInt())
-                    break;
-                accountNum = input.nextInt();
-                endLine = input.nextLine();
-                accountPin = input.nextInt();
-                if(input.hasNextLine())
-                    endLine = input.nextLine();
+                accountNum = input.nextLine();
+                accountPin = input.nextLine();
                 admins.add(new Admin(name, accountNum, accountPin));
             } // End while
             input.close();
@@ -54,10 +48,9 @@ public class DataController {
     } // End uploadAdminData Method
 
     public void downloadUsersData(ArrayList<Customer> customers) {
-        int accountNum; 
+        String accountNum; 
         String name;
-        int accountPin;
-        String endLine;
+        String accountPin;
 
         try {
             File theFile = new File("listUsers.txt");
@@ -65,13 +58,8 @@ public class DataController {
             
             while (input.hasNextLine()) {
                 name = input.nextLine();
-                if(!input.hasNextInt())
-                    break;
-                accountNum = input.nextInt();
-                endLine = input.nextLine();
-                accountPin = input.nextInt();
-                if(input.hasNextLine())
-                    endLine = input.nextLine();
+                accountNum = input.nextLine();
+                accountPin = input.nextLine();
                 customers.add(new Customer(name, accountNum, accountPin));
             } // End while
             input.close();
@@ -107,7 +95,6 @@ public class DataController {
         String name;
         String description;
         int quantity;
-        String endLine;
 
         try {
             File theFile = new File("listProducts.txt");
@@ -118,13 +105,13 @@ public class DataController {
                 if(!input.hasNextDouble())
                     break;
                 price = input.nextDouble();
-                endLine = input.nextLine();
+                input.nextLine();
                 description = input.nextLine();
                 if(!input.hasNextInt())
                     break;
                 quantity = input.nextInt();
                 if(input.hasNextLine())
-                    endLine = input.nextLine();
+                    input.nextLine();
                 products.add(new Product(name, price, description, quantity));
             } // End while
             input.close();

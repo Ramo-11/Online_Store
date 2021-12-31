@@ -3,6 +3,8 @@ package Frames;
 import java.awt.event.*;
 import javax.swing.*;
 
+import Program.*;
+
 public class GetCredentialsFrame extends JFrame implements ActionListener {
     JLabel nameLabel;
     JLabel pinLabel;
@@ -10,8 +12,11 @@ public class GetCredentialsFrame extends JFrame implements ActionListener {
     JTextField pinTextField;
     JButton submitButton;
 
-    GetCredentialsFrame(String title) {
+    Account currentAccount;
+    
+    GetCredentialsFrame(String title, Account account) {
         super(title);
+        this.currentAccount = account;
 
         setupFrame();
         setupTextFieldsAndButton();
@@ -40,6 +45,7 @@ public class GetCredentialsFrame extends JFrame implements ActionListener {
         submitButton.setBounds(215, 110, 100, 20);
 
         submitButton.addActionListener(this);
+        submitButton.setFocusable(false);
 
         this.add(nameLabel);
         this.add(pinLabel);
@@ -50,7 +56,16 @@ public class GetCredentialsFrame extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource() == submitButton)
-            System.out.println(nameTextField.getText() + " " + pinTextField.getText());   
+        try {
+            // Verify that input is a 5 digit number
+            Integer.parseInt(pinTextField.getText());
+            if(pinTextField.getText().length() != 5)
+                throw new NumberFormatException();
+
+            this.currentAccount.setName(nameTextField.getText());
+            this.currentAccount.setAccountPin(pinTextField.getText());
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(null, "Invalid Input: Pin must be a 5 digit number", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }
 } // End class

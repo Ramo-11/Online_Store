@@ -7,7 +7,7 @@ public class Admin extends Account {
         super();
     }
 
-    public Admin(String name, int accountNum, int accountPin) {
+    public Admin(String name, String accountNum, String accountPin) {
         super(name, accountNum, accountPin);
     }
 
@@ -20,7 +20,6 @@ public class Admin extends Account {
 
         System.out.println("\nAdmin was not found");
         helper.clearCredentials(account);
-        helper.Wait();
         return false;
     }
 }

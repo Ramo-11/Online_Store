@@ -5,13 +5,13 @@ import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.Dimension;
 
-public class UserLogInButton extends JButton {
+public class CustomerSignupButton extends JButton {
 
-    public UserLogInButton(String title) {
-        ImageIcon icon = new ImageIcon("Images/userIcon.png");
+    public CustomerSignupButton(String title) {
+        ImageIcon icon = new ImageIcon("GUI/Images/newCustomerIcon.png");
 
         this.setText(title);
-        this.setPreferredSize(new Dimension(140, 50));
+        this.setPreferredSize(new Dimension(200, 50));
         this.setFocusable(false);    // Removes highlight on text
         this.setForeground(Color.darkGray);  //set text color
         this.setIcon(icon);

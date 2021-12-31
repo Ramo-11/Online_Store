@@ -1,25 +1,24 @@
 package Program;
 
 import java.util.Random;
-import java.io.*;
 
 public class Account {
     String name;
-    int accountNum;
-    int accountPin;
+    String accountNum;
+    String accountPin;
 
     protected DataController controller;
     protected Helpers helper;
 
     public Account() {
         name = "Default Name";
-        accountNum = 0;
-        accountPin = 0;
+        accountNum = "00000";
+        accountPin = "00000";
         controller = new DataController();
         helper = new Helpers();
     }
 
-    public Account(String name, int accountNum, int accountPin) {
+    public Account(String name, String accountNum, String accountPin) {
         this.name = name;
         this.accountNum = accountNum;
         this.accountPin = accountPin;
@@ -34,14 +33,14 @@ public class Account {
     // Generate a random number to be account number
     public void generateAccountNum() {
         Random random = new Random();
-        this.accountNum = random.nextInt(100000);
+        this.accountNum = String.valueOf(random.nextInt(99999));
     }
 
-    public void setAccountPin(int accountPin) {
+    public void setAccountPin(String accountPin) {
         this.accountPin = accountPin;
     }
 
-    public void setAccountNum(int accountNum) {
+    public void setAccountNum(String accountNum) {
         this.accountNum = accountNum;
     }
 
@@ -49,11 +48,11 @@ public class Account {
         return this.name;
     }
 
-    public int getAccountNum() {
+    public String getAccountNum() {
         return this.accountNum;
     }
 
-    public int getAccountPin() {
+    public String getAccountPin() {
         return this.accountPin;
     }
 }

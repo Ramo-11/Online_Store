@@ -5,13 +5,15 @@ import java.awt.event.*;
 import javax.swing.JFrame;
 
 import GUI.Buttons.*;
-//import Program.*;
+import Program.*;
 
 public class Frame extends JFrame implements ActionListener {
 
     AdminButton adminButton;
-    UserLogInButton userLogInButton;
-    UserSignupButton userSignupButton;
+    CustomerLoginButton customerLoginButton;
+    CustomerSignupButton customerSignupButton;
+
+    Account currentAccount;
 
     public Frame(String title) {
         super(title);
@@ -26,33 +28,37 @@ public class Frame extends JFrame implements ActionListener {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setResizable(false);
         this.setSize(1000, 400);  // width = 1000, height = 400
-        this.setLayout(new FlowLayout(FlowLayout.CENTER, 100, 200));
+        this.setLayout(new FlowLayout(FlowLayout.CENTER, 80, 200));
     }
 
     public void setUpButtons() {
         adminButton = new AdminButton("Admin Log In");
-        userLogInButton = new UserLogInButton("User Log In");
-        userSignupButton = new UserSignupButton("Create a new user");
+        customerLoginButton = new CustomerLoginButton("Customer Log In");
+        customerSignupButton = new CustomerSignupButton("Create a new customer");
 
         adminButton.addActionListener(this);
-        userLogInButton.addActionListener(this);
-        userSignupButton.addActionListener(this);
+        customerLoginButton.addActionListener(this);
+        customerSignupButton.addActionListener(this);
 
         this.add(adminButton);
-        this.add(userLogInButton);
-        this.add(userSignupButton);
+        this.add(customerLoginButton);
+        this.add(customerSignupButton);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource() == adminButton) {
-            this.setVisible(false);
-            this.dispose();
-            new GetCredentialsFrame("something");
+
+        this.setVisible(false);
+        this.dispose();
+
+       if(e.getSource() == adminButton) {
+            currentAccount = new Admin();
+            new GetCredentialsFrame("Get Credentials", currentAccount);
         }
         
-        else if(e.getSource() == userLogInButton)
-            System.out.println("Ok?");
+        else if(e.getSource() == customerLoginButton)
+            currentAccount = new Customer();
+            new GetCredentialsFrame("Get Credentials", currentAccount);
     }
     
 } // End class
