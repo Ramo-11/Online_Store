@@ -2,7 +2,7 @@ package Program;
 
 import java.util.Random;
 
-public class Account {
+public abstract class Account {
     String name;
     String accountNum;
     String accountPin;
@@ -55,4 +55,4 @@ public class Account {
     public String getAccountPin() {
         return this.accountPin;
     }
-}
+} // End Class

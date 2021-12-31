@@ -2,19 +2,24 @@ package Program;
 
 import java.util.*;
 
-public class AdminController {
-    ArrayList<Admin> admins;
-    ArrayList<Customer> customers;
-    Inventory inventory;
-    DataController controlData;
+public class AdminController extends AccountController {
 
-    AdminController() {
-        admins = new ArrayList<Admin>();
-        customers = new ArrayList<Customer>();
-        inventory = new Inventory();
-        controlData = new DataController();
+    public ArrayList<Admin> admins;
 
-        controlData.downloadProductsData(inventory.allProducts);
-        controlData.downloadAdminsData(admins);
+    public AdminController() {
+        super();
+
+        this.admins = new ArrayList<Admin>();
+        this.controlData.downloadAdminsData(admins);
+    }
+
+    public boolean isLoginSuccessful(Admin currentAdmin) {
+        if(!currentAdmin.login(admins, currentAdmin)) {
+            System.out.println("\nLogging in failed");
+            return false;
+        }
+
+        System.out.println("\nLogged in successfully");
+        return true;
     }
 }

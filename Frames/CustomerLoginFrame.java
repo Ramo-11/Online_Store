@@ -5,18 +5,21 @@ import javax.swing.*;
 
 import Program.*;
 
-public class GetCredentialsFrame extends JFrame implements ActionListener {
+public class CustomerLoginFrame extends JFrame implements ActionListener {
     JLabel nameLabel;
     JLabel pinLabel;
     JTextField nameTextField;
     JTextField pinTextField;
     JButton submitButton;
 
-    Account currentAccount;
-    
-    GetCredentialsFrame(String title, Account account) {
+    Customer account;
+    CustomerController controlCustomer;
+
+    CustomerLoginFrame(String title, Customer account, CustomerController controlCustomer) {
         super(title);
-        this.currentAccount = account;
+        
+        this.account = account;
+        this.controlCustomer = controlCustomer;
 
         setupFrame();
         setupTextFieldsAndButton();
@@ -27,7 +30,7 @@ public class GetCredentialsFrame extends JFrame implements ActionListener {
     public void setupFrame() {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setResizable(false);
-        this.setSize(540, 250);  // width = 540, height = 200
+        this.setSize(540, 250);  // width = 540, height = 250
         this.setLayout(null);
     }
 
@@ -62,10 +65,13 @@ public class GetCredentialsFrame extends JFrame implements ActionListener {
             if(pinTextField.getText().length() != 5)
                 throw new NumberFormatException();
 
-            this.currentAccount.setName(nameTextField.getText());
-            this.currentAccount.setAccountPin(pinTextField.getText());
+            this.account.setName(nameTextField.getText());
+            this.account.setAccountPin(pinTextField.getText());
         } catch (NumberFormatException ex) {
             JOptionPane.showMessageDialog(null, "Invalid Input: Pin must be a 5 digit number", "Error", JOptionPane.ERROR_MESSAGE);
         }
+
+        if(!this.controlCustomer.isLoginSuccessful(this.account))
+            JOptionPane.showMessageDialog(null, "log in failed: user was not found", "Error", JOptionPane.WARNING_MESSAGE);
     }
-} // End class
+}

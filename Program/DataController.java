@@ -17,6 +17,7 @@ public class DataController {
                 name = input.nextLine();
                 accountNum = input.nextLine();
                 accountPin = input.nextLine();
+
                 admins.add(new Admin(name, accountNum, accountPin));
             } // End while
             input.close();

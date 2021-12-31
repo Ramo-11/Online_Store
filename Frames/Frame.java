@@ -13,8 +13,6 @@ public class Frame extends JFrame implements ActionListener {
     CustomerLoginButton customerLoginButton;
     CustomerSignupButton customerSignupButton;
 
-    Account currentAccount;
-
     public Frame(String title) {
         super(title);
 
@@ -52,13 +50,16 @@ public class Frame extends JFrame implements ActionListener {
         this.dispose();
 
        if(e.getSource() == adminButton) {
-            currentAccount = new Admin();
-            new GetCredentialsFrame("Get Credentials", currentAccount);
+            Admin currentAccount = new Admin();
+            AdminController controlAccount = new AdminController(); 
+            new AdminLoginFrame("Get Credentials", currentAccount, controlAccount);
         }
         
-        else if(e.getSource() == customerLoginButton)
-            currentAccount = new Customer();
-            new GetCredentialsFrame("Get Credentials", currentAccount);
+        else if(e.getSource() == customerLoginButton) {
+            Customer currentAccount = new Customer();
+            CustomerController controlAccount = new CustomerController();
+            new CustomerLoginFrame("Get Credentials", currentAccount, controlAccount);
+        }
     }
     
 } // End class

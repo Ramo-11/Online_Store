@@ -19,14 +19,14 @@ public class Customer extends Account {
         return cart;
     }
 
-    public boolean login(ArrayList<Customer> users, Account account) {
-        for(int i = 0; i < users.size(); i++)
-            if((account.getName().equals(users.get(i).getName())) && (account.getAccountPin() == users.get(i).getAccountPin())) {
+    public boolean login(ArrayList<Customer> customers, Customer account) {
+        for(int i = 0; i < customers.size(); i++)
+            if((account.getName().equals(customers.get(i).getName())) && (account.getAccountPin() == customers.get(i).getAccountPin())) {
                 // Customer was found
                 return true;
             }
 
-        System.out.println("\nUser was not found");
+        System.out.println("\nCustomer was not found");
         helper.clearCredentials(account);
         return false;
     }
