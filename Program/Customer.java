@@ -10,6 +10,12 @@ public class Customer extends Account {
         cart = new ShoppingCart();
     }
 
+    public Customer(String name, String pin) {
+        this.name = name;
+        this.accountPin = pin;
+        cart = new ShoppingCart();
+    }
+
     Customer(String name, String accountNum, String accountPin) {
         super(name, accountNum, accountPin);
         cart = new ShoppingCart();
@@ -21,7 +27,7 @@ public class Customer extends Account {
 
     public boolean login(ArrayList<Customer> customers, Customer account) {
         for(int i = 0; i < customers.size(); i++)
-            if((account.getName().equals(customers.get(i).getName())) && (account.getAccountPin() == customers.get(i).getAccountPin())) {
+            if((account.getName().equals(customers.get(i).getName())) && (account.getAccountPin().equals(customers.get(i).getAccountPin()))) {
                 // Customer was found
                 return true;
             }

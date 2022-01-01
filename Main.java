@@ -1,4 +1,4 @@
-import Frames.Frame;
+import GUI.Frames.Frame;
 import Program.*;
 
 public class Main {

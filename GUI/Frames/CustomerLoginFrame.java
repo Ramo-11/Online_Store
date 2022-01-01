@@ -1,4 +1,4 @@
-package Frames;
+package GUI.Frames;
 
 import java.awt.event.*;
 import javax.swing.*;
@@ -67,11 +67,18 @@ public class CustomerLoginFrame extends JFrame implements ActionListener {
 
             this.account.setName(nameTextField.getText());
             this.account.setAccountPin(pinTextField.getText());
+
+            if(!this.controlCustomer.isLoginSuccessful(this.account))
+                JOptionPane.showMessageDialog(null, "log in failed: user was not found", "Error", JOptionPane.WARNING_MESSAGE);
+
+            else {
+                this.setVisible(false);
+                this.dispose();
+                new CustomerMainFrame("Customer Main Menu", this.account);
+            }
+
         } catch (NumberFormatException ex) {
             JOptionPane.showMessageDialog(null, "Invalid Input: Pin must be a 5 digit number", "Error", JOptionPane.ERROR_MESSAGE);
         }
-
-        if(!this.controlCustomer.isLoginSuccessful(this.account))
-            JOptionPane.showMessageDialog(null, "log in failed: user was not found", "Error", JOptionPane.WARNING_MESSAGE);
     }
 }

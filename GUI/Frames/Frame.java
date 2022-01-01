@@ -1,4 +1,4 @@
-package Frames;
+package GUI.Frames;
 
 import java.awt.FlowLayout;
 import java.awt.event.*;
@@ -59,6 +59,11 @@ public class Frame extends JFrame implements ActionListener {
             Customer currentAccount = new Customer();
             CustomerController controlAccount = new CustomerController();
             new CustomerLoginFrame("Get Credentials", currentAccount, controlAccount);
+        }
+
+        else if(e.getSource() == customerSignupButton) {
+            CustomerController controlAccount = new CustomerController();
+            new CustomerSignupFrame("Get Credentials", controlAccount);
         }
     }
     

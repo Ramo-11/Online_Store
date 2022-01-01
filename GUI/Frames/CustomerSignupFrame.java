@@ -1,25 +1,24 @@
-package Frames;
+package GUI.Frames;
 
 import java.awt.event.*;
 import javax.swing.*;
 
 import Program.*;
 
-public class AdminLoginFrame extends JFrame implements ActionListener {
+public class CustomerSignupFrame extends JFrame implements ActionListener {
     JLabel nameLabel;
     JLabel pinLabel;
     JTextField nameTextField;
     JTextField pinTextField;
     JButton submitButton;
 
-    Admin account;
-    AdminController controlAdmin;
+    Customer account;
+    CustomerController controlCustomer;
 
-    AdminLoginFrame(String title, Admin account, AdminController controlAdminn) {
+    public CustomerSignupFrame(String title, CustomerController controlCustomer) {
         super(title);
         
-        this.account = account;
-        this.controlAdmin = controlAdminn;
+        this.controlCustomer = controlCustomer;
 
         setupFrame();
         setupTextFieldsAndButton();
@@ -65,13 +64,16 @@ public class AdminLoginFrame extends JFrame implements ActionListener {
             if(pinTextField.getText().length() != 5)
                 throw new NumberFormatException();
 
-            this.account.setName(nameTextField.getText());
-            this.account.setAccountPin(pinTextField.getText());
+            this.account = new Customer(nameTextField.getText(), pinTextField.getText());
+            controlCustomer.createAccount(this.account);
+
+            JOptionPane.showMessageDialog(null, "Success: Customer has been created", " ", JOptionPane.INFORMATION_MESSAGE);
+            this.setVisible(false);
+            this.dispose();
+            new Frame("Online Store");
+            
         } catch (NumberFormatException ex) {
             JOptionPane.showMessageDialog(null, "Invalid Input: Pin must be a 5 digit number", "Error", JOptionPane.ERROR_MESSAGE);
         }
-
-        if(!this.controlAdmin.isLoginSuccessful(this.account))
-            JOptionPane.showMessageDialog(null, "log in failed: user was not found", "Error", JOptionPane.WARNING_MESSAGE);
     }
 }

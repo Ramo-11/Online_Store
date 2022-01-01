@@ -3,6 +3,8 @@ package Program;
 public class CustomerController extends AccountController {
     public CustomerController() {
         super();
+
+        this.controlData.downloadUsersData(customers);
     }
 
     public boolean isLoginSuccessful(Customer currentCustomer) {
@@ -14,4 +16,9 @@ public class CustomerController extends AccountController {
         System.out.println("\nLogged in successfully");
         return true;
     } // End isLoginSuccessful Method
+
+    public void createAccount(Customer customer) {
+        customers.add(customer);
+        controlData.uploadUserData(customers);
+    }
 }
