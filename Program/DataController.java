@@ -93,6 +93,7 @@ public class DataController {
 
     public void downloadProductsData(ArrayList<Product> products) {
         double price; 
+        String ID;
         String name;
         String description;
         int quantity;
@@ -102,6 +103,7 @@ public class DataController {
             Scanner input = new Scanner(theFile);
             
             while (input.hasNextLine()) {
+                ID = input.nextLine();
                 name = input.nextLine();
                 if(!input.hasNextDouble())
                     break;
@@ -113,7 +115,7 @@ public class DataController {
                 quantity = input.nextInt();
                 if(input.hasNextLine())
                     input.nextLine();
-                products.add(new Product(name, price, description, quantity));
+                products.add(new Product(ID, name, price, description, quantity));
             } // End while
             input.close();
         } catch (IOException e) {
@@ -130,6 +132,7 @@ public class DataController {
                 if(i != 0) {
                     output.print("\n");
                 }
+                output.println(products.get(i).getID());
                 output.println(products.get(i).getName());
                 output.println(products.get(i).getPrice());
                 output.println(products.get(i).getDescription());

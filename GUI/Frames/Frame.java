@@ -27,9 +27,9 @@ public class Frame extends JFrame implements ActionListener {
 
     public void setUpFrame() {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setResizable(false);
+        this.setResizable(true);
         this.setSize(1000, 400);  // width = 1000, height = 400
-        this.setLayout(new FlowLayout(FlowLayout.CENTER, 80, 200));
+        this.setLayout(new FlowLayout(FlowLayout.CENTER, 100, 200));
     }
 
     public void setUpButtons() {

@@ -6,7 +6,7 @@ import java.awt.event.*;
 
 import Program.*;
 
-public class AddProductFrame extends JFrame implements ActionListener{
+public class AddProductFrame extends JFrame implements ActionListener {
     JTextField nameTextField;
     JTextField priceTextField;
     JTextField descriptionTextField;
@@ -32,7 +32,7 @@ public class AddProductFrame extends JFrame implements ActionListener{
     public void setupFrame() {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setResizable(false);
-        this.setSize(920, 400);  // width = 700, height = 400
+        this.setSize(920, 400);  // width = 920, height = 400
         this.setLayout(null);
     }
 
@@ -74,6 +74,9 @@ public class AddProductFrame extends JFrame implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         try {
+            if(nameTextField.getText().matches("^\\d+(\\.\\d+)?") || descriptionTextField.getText().matches("^\\d+(\\.\\d+)?"))
+                throw new NotStringException();
+
             Product product = new Product(nameTextField.getText(),
                                         Double.parseDouble(priceTextField.getText()),
                                         descriptionTextField.getText(),

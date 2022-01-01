@@ -60,7 +60,10 @@ public class AdminLoginFrame extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         try {
-            // Verify that input is a 5 digit number
+            if(nameTextField.getText().matches("^\\d+(\\.\\d+)?"))
+                throw new NotStringException();
+
+            // Verify that pin input  is a 5 digit number
             Integer.parseInt(pinTextField.getText());
             if(pinTextField.getText().length() != 5)
                 throw new NumberFormatException();
@@ -76,6 +79,8 @@ public class AdminLoginFrame extends JFrame implements ActionListener {
                 this.dispose();
                 new AdminMainFrame("Admin Main Menu", this.account);
             }
+        } catch (NotStringException ex) {
+            JOptionPane.showMessageDialog(null, "Invalid Input: Full name must be a string", "Error", JOptionPane.ERROR_MESSAGE);
         } catch (NumberFormatException ex) {
             JOptionPane.showMessageDialog(null, "Invalid Input: Pin must be a 5 digit number", "Error", JOptionPane.ERROR_MESSAGE);
         }

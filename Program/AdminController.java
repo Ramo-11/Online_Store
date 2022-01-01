@@ -31,4 +31,13 @@ public class AdminController extends AccountController {
         inventory.addProduct(newProduct);
         controlData.uploadProductsData(inventory.getProducts());
     }
+
+    public void removeProduct(Product productToRemove) {
+        this.inventory.removeProduct(productToRemove);
+        controlData.uploadProductsData(inventory.getProducts());
+    }
+
+    public Inventory getInventory() {
+        return inventory;
+    }
 }

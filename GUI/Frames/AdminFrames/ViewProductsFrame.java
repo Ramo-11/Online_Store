@@ -19,8 +19,8 @@ public class ViewProductsFrame extends JFrame implements ActionListener {
         this.products = products;
 
         setupFrame();
-        setupButton();
         createLabels();
+        setupButton();
 
         this.setVisible(true);
     }
@@ -33,7 +33,7 @@ public class ViewProductsFrame extends JFrame implements ActionListener {
     }
 
     public void setupButton() {
-        okayButton = new JButton("OK");
+        okayButton = new JButton("Done");
         okayButton.setFocusable(false);
         okayButton.addActionListener(this);
         this.add(okayButton);
@@ -41,14 +41,11 @@ public class ViewProductsFrame extends JFrame implements ActionListener {
 
     public void createLabels() {
         ArrayList<JLabel> labels = new ArrayList<JLabel>();
-        String space = "     ";
-
-        JLabel emptyLabel = new JLabel();
-        labels.add(emptyLabel);
+        String space = "                               ";
 
         int i = 0;
         for(Product p : products)
-            labels.add(new JLabel("Product " + (++i) + ":" + space + "name: " + p.getName() + space + "price: " + p.getPrice() + space + "description: " + p.getDescription() + space + "quantity: " + p.getQuantity()));
+            labels.add(new JLabel("Product " + (++i) + ":" + space + "ID: "  + p.getID() + space + "name: " + p.getName() + space + "price: " + p.getPrice() + space + "description: " + p.getDescription() + space  + space + "quantity: " + p.getQuantity()));
 
 
         for(JLabel l : labels) {
