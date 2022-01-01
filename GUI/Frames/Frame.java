@@ -5,6 +5,9 @@ import java.awt.event.*;
 import javax.swing.JFrame;
 
 import GUI.Buttons.*;
+import GUI.Frames.AdminFrames.AdminLoginFrame;
+import GUI.Frames.CustomerFrames.CustomerLoginFrame;
+import GUI.Frames.CustomerFrames.CustomerSignupFrame;
 import Program.*;
 
 public class Frame extends JFrame implements ActionListener {

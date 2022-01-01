@@ -1,11 +1,12 @@
-package GUI.Frames;
+package GUI.Frames.CustomerFrames;
 
 import java.awt.event.*;
 import javax.swing.*;
 
+import GUI.Frames.Frame;
 import Program.*;
 
-public class CustomerLoginFrame extends JFrame implements ActionListener {
+public class CustomerSignupFrame extends JFrame implements ActionListener {
     JLabel nameLabel;
     JLabel pinLabel;
     JTextField nameTextField;
@@ -15,10 +16,9 @@ public class CustomerLoginFrame extends JFrame implements ActionListener {
     Customer account;
     CustomerController controlCustomer;
 
-    CustomerLoginFrame(String title, Customer account, CustomerController controlCustomer) {
+    public CustomerSignupFrame(String title, CustomerController controlCustomer) {
         super(title);
         
-        this.account = account;
         this.controlCustomer = controlCustomer;
 
         setupFrame();
@@ -65,18 +65,14 @@ public class CustomerLoginFrame extends JFrame implements ActionListener {
             if(pinTextField.getText().length() != 5)
                 throw new NumberFormatException();
 
-            this.account.setName(nameTextField.getText());
-            this.account.setAccountPin(pinTextField.getText());
+            this.account = new Customer(nameTextField.getText(), pinTextField.getText());
+            controlCustomer.createAccount(this.account);
 
-            if(!this.controlCustomer.isLoginSuccessful(this.account))
-                JOptionPane.showMessageDialog(null, "log in failed: user was not found", "Error", JOptionPane.WARNING_MESSAGE);
-
-            else {
-                this.setVisible(false);
-                this.dispose();
-                new CustomerMainFrame("Customer Main Menu", this.account);
-            }
-
+            JOptionPane.showMessageDialog(null, "Success: Customer has been created", "Success", JOptionPane.INFORMATION_MESSAGE);
+            this.setVisible(false);
+            this.dispose();
+            new Frame("Online Store");
+            
         } catch (NumberFormatException ex) {
             JOptionPane.showMessageDialog(null, "Invalid Input: Pin must be a 5 digit number", "Error", JOptionPane.ERROR_MESSAGE);
         }

@@ -3,12 +3,16 @@ package Program;
 import java.util.ArrayList;
 
 public class Admin extends Account {
+    Inventory inventory;
+
     public Admin() {
         super();
+        inventory = new Inventory();
     }
 
     public Admin(String name, String accountNum, String accountPin) {
         super(name, accountNum, accountPin);
+        inventory = new Inventory();
     }
 
     public boolean login(ArrayList<Admin> admins, Admin account) {
@@ -19,5 +23,9 @@ public class Admin extends Account {
             }
             
         return false;
+    }
+
+    public Inventory getInventory() {
+        return inventory;
     }
 }

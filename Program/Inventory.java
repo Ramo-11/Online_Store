@@ -13,10 +13,6 @@ public class Inventory {
         this.allProducts = allProducts;
     }
 
-    public ArrayList<Product> getAllProducts() {
-        return this.allProducts;
-    } // End getAllProducts Method
-
     public void addProduct(Product product) {
         allProducts.add(product);
     } // End addProduct Method
@@ -42,6 +38,10 @@ public class Inventory {
         this.allProducts = allProducts;
     } // End setProducts Method
 
+    public ArrayList<Product> getProducts() {
+        return allProducts;
+    }
+    
     public void printProducts() {
         int i = 1;
         for(Product p : allProducts) {

@@ -1,4 +1,4 @@
-package GUI.Frames;
+package GUI.Frames.CustomerFrames;
 
 import java.awt.event.*;
 import javax.swing.*;
