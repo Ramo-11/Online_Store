@@ -84,6 +84,8 @@ public class AdminMainFrame extends JFrame implements ActionListener {
             new ViewProductsFrame("View Products", this.controlAdmin.inventory.getProducts());
         else if(e.getSource() == addProductButton)
             new AddProductFrame("Add a New Product", this.controlAdmin);
+        else if(e.getSource() == updateProductButton)
+            new UpdateProductFrame("Update a Product", this.controlAdmin);
         else if(e.getSource() == removeProductButton)
             new RemoveProductFrame("Remove a Product", this.controlAdmin);
     }

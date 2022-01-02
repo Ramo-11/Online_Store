@@ -35,8 +35,8 @@ public class RemoveProductFrame extends JFrame implements ActionListener {
         productIDLabel = new JLabel("Product ID");
         submitButton = new JButton("Submit");
 
-        productIDTextField.setBounds(300, 200, 120, 25);
         productIDLabel.setBounds(300, 170, 120, 25);
+        productIDTextField.setBounds(300, 200, 120, 25);
         submitButton.setBounds(310, 270, 100, 25);
 
         submitButton.addActionListener(this);
@@ -49,21 +49,24 @@ public class RemoveProductFrame extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        try {
-            Product toRemove = new Product();
+        Boolean productFound = false;
+        Product toRemove = new Product();
 
-            for(Product p : this.controlAdmin.getInventory().getProducts())
-                if(productIDTextField.getText().equals(p.getID()))
-                    toRemove = p;
+        for(Product p : this.controlAdmin.getInventory().getProducts())
+            if(productIDTextField.getText().equals(p.getID())) {
+                toRemove = p;
+                productFound = true;
+            }
 
+        if(productFound == false)
+            JOptionPane.showMessageDialog(null, "Fail: Product was not found", "Fail", JOptionPane.WARNING_MESSAGE);
+
+        else {
             controlAdmin.removeProduct(toRemove);
             JOptionPane.showMessageDialog(null, "Success: Product has been removed", "Success", JOptionPane.INFORMATION_MESSAGE);
-            
-            this.setVisible(false);
-            this.dispose();
-        } catch (NumberFormatException ex) {
-            JOptionPane.showMessageDialog(null, "Invalid Input: Price must be a number and quantity must be an integer", "Error", JOptionPane.ERROR_MESSAGE);
         }
-
+        
+        this.setVisible(false);
+        this.dispose();
     }
-}
+} // End class

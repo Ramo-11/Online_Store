@@ -39,7 +39,7 @@ public class Product {
         this.price = product.price;
         this.description = product.description;
         this.quantity = product.quantity;
-        productID = UUID.randomUUID().toString().substring(0, 5);
+        this.productID = product.productID;
     }
 
     public void setName(String name) {

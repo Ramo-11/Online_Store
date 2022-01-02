@@ -27,11 +27,14 @@ public class Inventory {
         allProducts.remove(toRemove);
     } // End removeProduct Method
 
-    public void updateProduct(Product product, int itemNumber) {
-        allProducts.get(itemNumber-1).setName(product.getName());
-        allProducts.get(itemNumber-1).setPrice(product.getPrice());
-        allProducts.get(itemNumber-1).setDescription(product.getDescription());
-        allProducts.get(itemNumber-1).setQuantity(product.getQuantity());
+    public void updateProduct(Product product) {
+        for(Product p : allProducts)
+            if(p.getID().equals(product.getID())) {
+                p.setName(product.getName());
+                p.setDescription(product.getDescription());
+                p.setPrice(product.getPrice());
+                p.setQuantity(product.getQuantity());
+            }
     } // End updateProduct Method
 
     public void setProducts(ArrayList<Product> allProducts) {

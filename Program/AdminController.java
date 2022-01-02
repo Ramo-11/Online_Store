@@ -37,6 +37,11 @@ public class AdminController extends AccountController {
         controlData.uploadProductsData(inventory.getProducts());
     }
 
+    public void updateProduct(Product product) {
+        inventory.updateProduct(product);
+        controlData.uploadProductsData(inventory.getProducts());
+    }
+
     public Inventory getInventory() {
         return inventory;
     }
