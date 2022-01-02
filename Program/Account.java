@@ -18,6 +18,14 @@ public abstract class Account {
         helper = new Helpers();
     }
 
+    public Account(String name, String accountPin) {
+        this.name = name;
+        this.accountPin = accountPin;
+        generateAccountNum();
+        controller = new DataController();
+        helper = new Helpers();
+    }
+
     public Account(String name, String accountNum, String accountPin) {
         this.name = name;
         this.accountNum = accountNum;

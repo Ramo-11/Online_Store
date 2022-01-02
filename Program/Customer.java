@@ -11,6 +11,7 @@ public class Customer extends Account {
     }
 
     public Customer(String name, String pin) {
+        super(name, pin);
         this.name = name;
         this.accountPin = pin;
         cart = new ShoppingCart();

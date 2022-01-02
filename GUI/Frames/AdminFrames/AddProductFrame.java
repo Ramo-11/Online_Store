@@ -30,7 +30,7 @@ public class AddProductFrame extends JFrame implements ActionListener {
     }
     
     public void setupFrame() {
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setResizable(false);
         this.setSize(920, 400);  // width = 920, height = 400
         this.setLayout(null);

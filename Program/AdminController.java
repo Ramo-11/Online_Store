@@ -42,6 +42,28 @@ public class AdminController extends AccountController {
         controlData.uploadProductsData(inventory.getProducts());
     }
 
+    public void createAdmin(Admin admin) {
+        admins.add(admin);
+        controlData.uploadAdminData(admins);
+    }
+
+    public void createCustomer(Customer customer) {
+        customers.add(customer);
+        controlData.uploadUserData(customers);
+    }
+
+    public void removeCustomer(Customer customer) {
+        Customer toRemove = new Customer();
+
+        for(Customer c : customers)
+            if(c.getAccountNum().equals(customer.getAccountNum()))
+                toRemove = c;
+
+        customers.remove(toRemove);
+
+        controlData.uploadUserData(customers);
+    }
+
     public Inventory getInventory() {
         return inventory;
     }

@@ -7,8 +7,8 @@ import java.awt.event.*;
 import Program.*;
 
 public class RemoveProductFrame extends JFrame implements ActionListener {
-    JTextField productIDTextField;    
     JLabel productIDLabel;
+    JTextField productIDTextField;    
     JButton submitButton;
     
     AdminController controlAdmin;
@@ -24,7 +24,7 @@ public class RemoveProductFrame extends JFrame implements ActionListener {
     }
     
     public void setupFrame() {
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setResizable(false);
         this.setSize(850, 400);  // width = 850, height = 400
         this.setLayout(null);

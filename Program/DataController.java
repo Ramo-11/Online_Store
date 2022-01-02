@@ -54,7 +54,7 @@ public class DataController {
         String accountPin;
 
         try {
-            File theFile = new File("listUsers.txt");
+            File theFile = new File("listCustomers.txt");
             Scanner input = new Scanner(theFile);
             
             while (input.hasNextLine()) {
@@ -71,7 +71,7 @@ public class DataController {
    
     public void uploadUserData(ArrayList<Customer> customers) {
         try {
-            FileWriter outFile = new FileWriter("listUsers.txt", false);
+            FileWriter outFile = new FileWriter("listCustomers.txt", false);
             PrintWriter output = new PrintWriter(outFile);
                     
             for (int i = 0; i < customers.size(); i++) {

@@ -6,6 +6,11 @@ public class Admin extends Account {
 
     public Admin() {
         super();
+        generateAccountNum();
+    }
+
+    public Admin(String name, String accountPin) {
+        super(name, accountPin);
     }
 
     public Admin(String name, String accountNum, String accountPin) {

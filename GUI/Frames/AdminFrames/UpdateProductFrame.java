@@ -45,11 +45,11 @@ public class UpdateProductFrame extends JFrame implements ActionListener {
 
     public void setupTextFieldsAndLabels() {
         productIDTextField = new JTextField();
-        productIDLabel = new JLabel("Product ID");
+        productIDLabel = new JLabel("Product ID (5 alphanumeric characters)");
         submitButton = new JButton("Submit");
 
         productIDTextField.setBounds(300, 200, 120, 25);
-        productIDLabel.setBounds(300, 170, 120, 25);
+        productIDLabel.setBounds(240, 170, 230, 25);
         submitButton.setBounds(310, 270, 100, 25);
 
         submitButton.addActionListener(this);
