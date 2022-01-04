@@ -1,15 +1,10 @@
-bf6c2
-Laptop
-2000.0
-HP Pavilion
-10
 re23c
 Car
 100000.0
 Acura TL 2006
-5
+4
 fc8f4
 newProduct
 12.0
 something new
-2
+10

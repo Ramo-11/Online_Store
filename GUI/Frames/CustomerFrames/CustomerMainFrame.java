@@ -71,10 +71,10 @@ public class CustomerMainFrame extends JFrame implements ActionListener {
             new Frame("Online Store");
         }
         else if(e.getSource() == browseProductsButton)
-            new BrowseProductsFrame("Browse Products: " + controlCustomer.getCustomer().getName(), this.controlCustomer.getInventory().getProducts(), controlCustomer.getCustomer());
+            new BrowseProductsFrame("Browse Products: " + controlCustomer.getCustomer().getName(), controlCustomer.getInventory().getProducts(), controlCustomer.getCustomer());
         else if(e.getSource() == viewShoppingCart)
             new ViewShoppingCartFrame("View Shopping Cart: " + controlCustomer.getCustomer().getName(), controlCustomer.getCustomer().getShoppingCart());
         else if(e.getSource() == purchaseItemsInCart)
-            new PurchaseCartItemsFrame("Purchase Items in shopping cart: " + controlCustomer.getCustomer().getName(), controlCustomer.getCustomer());
+            new PurchaseCartItemsFrame("Purchase Items in shopping cart: " + controlCustomer.getCustomer().getName(), controlCustomer);
     }
 }

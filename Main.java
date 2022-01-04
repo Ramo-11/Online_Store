@@ -1,4 +1,4 @@
-import GUI.Frames.Frame;
+import GUI.Frames.MainFrame;
 import Program.*;
 
 public class Main {
@@ -6,7 +6,7 @@ public class Main {
     DataController dataController;
 
     public static void main(String[] args) {
-        new Frame("Online Store");
+        new MainFrame("Online Store");
     }
     
 }

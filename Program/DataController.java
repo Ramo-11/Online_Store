@@ -146,7 +146,7 @@ public class DataController implements Serializable {
     }
         public void downloadCartData(Customer customer) {
             try{
-                FileInputStream file = new FileInputStream(customer.getName() + "Cart.txt");
+                FileInputStream file = new FileInputStream(customer.getName() + "Cart");
                 ObjectInputStream in = new ObjectInputStream(file);
     
                 ShoppingCart cart = new ShoppingCart();
@@ -161,13 +161,13 @@ public class DataController implements Serializable {
             } catch(IOException ex) {
                 System.out.println(ex.getMessage());
             } catch(ClassNotFoundException ex){
-                System.out.println("Class not found exception has been caught");
+                System.out.println("Class not found exception was caught");
             } 
         } // End downloadProductsData Method
        
         public void uploadCartData(Customer customer) {
             try{
-                FileOutputStream file = new FileOutputStream(customer.getName() + "Cart.txt");
+                FileOutputStream file = new FileOutputStream(customer.getName() + "Cart");
                 ObjectOutputStream out = new ObjectOutputStream(file);
     
                 out.writeObject(customer.getShoppingCart());
@@ -177,7 +177,7 @@ public class DataController implements Serializable {
     
                 System.out.println("Upload is complete!\n");
             } catch(IOException ex) {
-                System.out.println("Exception has been caught");
+                System.out.println("Exception caught in uploadCartData method");
             }
     } // End uploadProductsData Method
 }

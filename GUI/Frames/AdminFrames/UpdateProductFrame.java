@@ -39,7 +39,7 @@ public class UpdateProductFrame extends JFrame implements ActionListener {
     public void setupFrame() {
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setResizable(false);
-        this.setSize(750, 400);  // width = 740, height = 400
+        this.setSize(750, 400);  // width = 750, height = 400
         this.setLayout(null);
     }
 

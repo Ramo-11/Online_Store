@@ -67,21 +67,23 @@ public class BrowseProductsFrame extends JFrame implements ActionListener {
 
     public void productQuantity() {
         clearFrame();
+        this.setLayout(null);
+        this.setSize(750, 400);  // width = 750, height = 400
         this.setResizable(false);
 
-        quantityTextField = new JTextField();
         quantityLabel = new JLabel("Enter Quantity");
+        quantityTextField = new JTextField();
         submitButton = new JButton("Submit");
 
-        quantityTextField.setBounds(300, 200, 120, 25);
-        quantityLabel.setBounds(280, 170, 230, 25);
-        submitButton.setBounds(310, 270, 100, 25);
+        quantityLabel.setBounds(300, 100, 230, 25);
+        quantityTextField.setBounds(280, 140, 120, 25);
+        submitButton.setBounds(290, 180, 100, 25);
 
         submitButton.addActionListener(this);
         submitButton.setFocusable(false);
 
-        this.add(quantityTextField);
         this.add(quantityLabel);
+        this.add(quantityTextField);
         this.add(submitButton);
     }
 
@@ -101,7 +103,7 @@ public class BrowseProductsFrame extends JFrame implements ActionListener {
                     this.dispose();
                 }
                 else 
-                    JOptionPane.showMessageDialog(null, "Invalid Input: quantity must not be greater than total quantity of the product", "Error", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Invalid Input: quantity must be a positive integer less than or equal to total product quantity", "Error", JOptionPane.ERROR_MESSAGE);
             }
 
             else {

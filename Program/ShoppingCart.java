@@ -17,4 +17,8 @@ public class ShoppingCart implements Serializable {
     public void addProductToCart(Product product) {
         products.add(product);
     }
+
+    public void clearProducts() {
+        products.clear();
+    }
 }

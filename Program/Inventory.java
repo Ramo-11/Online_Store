@@ -45,11 +45,7 @@ public class Inventory {
         return allProducts;
     }
     
-    public void printProducts() {
-        int i = 1;
-        for(Product p : allProducts) {
-            System.out.println("\nItem " + i + ": \n" + p.printProduct());
-            i++;
-        }
-    } // End printProducts Method
+    public void clearProducts() {
+        allProducts.clear();
+    }
 }

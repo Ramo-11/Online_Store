@@ -2,7 +2,7 @@ package GUI.Frames.AdminFrames;
 
 import java.awt.event.*;
 import javax.swing.*;
-import GUI.Frames.Frame;
+import GUI.Frames.MainFrame;
 
 import Program.*;
 
@@ -90,21 +90,21 @@ public class AdminMainFrame extends JFrame implements ActionListener {
         if(e.getSource() == backToMainFrame) {
             this.setVisible(false);
             this.dispose();
-            new Frame("Online Store");
+            new MainFrame("Online Store");
         }
         else if(e.getSource() == viewAllProductsButton)
-            new ViewProductsFrame("View Products", this.controlAdmin.getInventory().getProducts());
+            new ViewProductsFrame("View Products", controlAdmin.getInventory().getProducts());
         else if(e.getSource() == addProductButton)
-            new AddProductFrame("Add a New Product", this.controlAdmin);
+            new AddProductFrame("Add a New Product", controlAdmin);
         else if(e.getSource() == updateProductButton)
-            new UpdateProductFrame("Update a Product", this.controlAdmin);
+            new UpdateProductFrame("Update a Product", controlAdmin);
         else if(e.getSource() == removeProductButton)
-            new RemoveProductFrame("Remove a Product", this.controlAdmin);
+            new RemoveProductFrame("Remove a Product", controlAdmin);
         else if(e.getSource() == createAdminButton)
-            new CreateAdminAccountFrame("Create Admin Account", this.controlAdmin);
+            new CreateAdminAccountFrame("Create Admin Account", controlAdmin);
         else if(e.getSource() == createCustomerButton)
-            new CreateCustomerAccountFrame("Create Customer Account", this.controlAdmin);
+            new CreateCustomerAccountFrame("Create Customer Account", controlAdmin);
         else if(e.getSource() == removeCustomerButton)
-            new RemoveCustomerAccountFrame("Remove Customer Account", this.controlAdmin);
+            new RemoveCustomerAccountFrame("Remove Customer Account", controlAdmin);
     }
 }

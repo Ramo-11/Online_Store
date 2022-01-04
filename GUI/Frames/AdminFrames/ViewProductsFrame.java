@@ -28,7 +28,7 @@ public class ViewProductsFrame extends JFrame implements ActionListener {
     public void setupFrame() {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setResizable(true);
-        this.setSize(700, 600);  // width = 540, height = 250
+        this.setSize(900, 600);  // width = 900, height = 600
         this.setLayout(new FlowLayout(FlowLayout.LEFT, 20, 50));
     }
 
