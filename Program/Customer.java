@@ -38,7 +38,7 @@ public class Customer extends Account {
             }
 
         System.out.println("\nCustomer was not found");
-        helper.clearCredentials(account);
+        account.clearAccount();
         return false;
     }
 }

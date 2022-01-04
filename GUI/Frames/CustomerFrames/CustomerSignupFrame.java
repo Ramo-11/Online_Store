@@ -3,7 +3,7 @@ package GUI.Frames.CustomerFrames;
 import java.awt.event.*;
 import javax.swing.*;
 
-import GUI.Frames.Frame;
+import GUI.Frames.MainFrame;
 import Program.*;
 
 public class CustomerSignupFrame extends JFrame implements ActionListener {
@@ -71,7 +71,7 @@ public class CustomerSignupFrame extends JFrame implements ActionListener {
             JOptionPane.showMessageDialog(null, "Success: Customer has been created", "Success", JOptionPane.INFORMATION_MESSAGE);
             this.setVisible(false);
             this.dispose();
-            new Frame("Online Store");
+            new MainFrame("Online Store");
             
         } catch (NumberFormatException ex) {
             JOptionPane.showMessageDialog(null, "Invalid Input: Pin must be a 5 digit number", "Error", JOptionPane.ERROR_MESSAGE);

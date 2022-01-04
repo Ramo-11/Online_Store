@@ -2,7 +2,7 @@ package GUI.Frames.CustomerFrames;
 
 import java.awt.event.*;
 import javax.swing.*;
-import GUI.Frames.Frame;
+import GUI.Frames.MainFrame;
 
 import Program.*;
 
@@ -68,7 +68,7 @@ public class CustomerMainFrame extends JFrame implements ActionListener {
         if(e.getSource() == backToMainFrame) {
             this.setVisible(false);
             this.dispose();
-            new Frame("Online Store");
+            new MainFrame("Online Store");
         }
         else if(e.getSource() == browseProductsButton)
             new BrowseProductsFrame("Browse Products: " + controlCustomer.getCustomer().getName(), controlCustomer.getInventory().getProducts(), controlCustomer.getCustomer());

@@ -9,14 +9,12 @@ public abstract class Account implements Serializable {
     String accountPin;
 
     protected DataController controller;
-    protected Helpers helper;
 
     public Account() {
         name = "Default Name";
         accountNum = "00000";
         accountPin = "00000";
         controller = new DataController();
-        helper = new Helpers();
     }
 
     public Account(String name, String accountPin) {
@@ -24,7 +22,6 @@ public abstract class Account implements Serializable {
         this.accountPin = accountPin;
         generateAccountNum();
         controller = new DataController();
-        helper = new Helpers();
     }
 
     public Account(String name, String accountNum, String accountPin) {
@@ -32,7 +29,6 @@ public abstract class Account implements Serializable {
         this.accountNum = accountNum;
         this.accountPin = accountPin;
         controller = new DataController();
-        helper = new Helpers();
     }
 
     public void setName(String name) {
@@ -63,5 +59,11 @@ public abstract class Account implements Serializable {
 
     public String getAccountPin() {
         return this.accountPin;
+    }
+
+    public void clearAccount() {
+        name = "Default Name";
+        accountNum = "00000";
+        accountPin = "00000";
     }
 } // End Class
