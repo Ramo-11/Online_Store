@@ -15,9 +15,15 @@ public class MainFrame extends JFrame implements ActionListener {
     CustomerLoginButton customerLoginButton;
     CustomerSignupButton customerSignupButton;
 
+    AdminController controlAdmin;
+
     public MainFrame(String title) {
         super(title);
 
+        Admin firstAdmin = new Admin("Admin", "12345");
+        controlAdmin = new AdminController();
+        controlAdmin.createAdmin(firstAdmin);
+        
         setUpFrame();
         setUpButtons();
 

@@ -77,7 +77,7 @@ public class AdminLoginFrame extends JFrame implements ActionListener {
             else {
                 this.setVisible(false);
                 this.dispose();
-                new AdminMainFrame("Admin Main Menu", this.account);
+                new AdminMainFrame("Admin Main Menu: " + this.account.getName());
             }
         } catch (NotStringException ex) {
             JOptionPane.showMessageDialog(null, "Invalid Input: Full name must be a string", "Error", JOptionPane.ERROR_MESSAGE);

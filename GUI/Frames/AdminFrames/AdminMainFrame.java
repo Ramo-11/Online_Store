@@ -19,10 +19,9 @@ public class AdminMainFrame extends JFrame implements ActionListener {
     Admin admin;
     AdminController controlAdmin;
 
-    AdminMainFrame(String title, Admin admin) {
-        super(title + ": " + admin.getName());
+    AdminMainFrame(String title) {
+        super(title);
         
-        this.admin = admin;  
         controlAdmin = new AdminController();
 
         setupFrame();
