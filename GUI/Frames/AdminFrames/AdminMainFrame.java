@@ -93,7 +93,7 @@ public class AdminMainFrame extends JFrame implements ActionListener {
             new Frame("Online Store");
         }
         else if(e.getSource() == viewAllProductsButton)
-            new ViewProductsFrame("View Products", this.controlAdmin.inventory.getProducts());
+            new ViewProductsFrame("View Products", this.controlAdmin.getInventory().getProducts());
         else if(e.getSource() == addProductButton)
             new AddProductFrame("Add a New Product", this.controlAdmin);
         else if(e.getSource() == updateProductButton)

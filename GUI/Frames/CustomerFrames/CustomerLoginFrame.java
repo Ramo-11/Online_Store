@@ -12,13 +12,11 @@ public class CustomerLoginFrame extends JFrame implements ActionListener {
     JTextField pinTextField;
     JButton submitButton;
 
-    Customer account;
     CustomerController controlCustomer;
 
-    public CustomerLoginFrame(String title, Customer account, CustomerController controlCustomer) {
+    public CustomerLoginFrame(String title, CustomerController controlCustomer) {
         super(title);
         
-        this.account = account;
         this.controlCustomer = controlCustomer;
 
         setupFrame();
@@ -65,16 +63,16 @@ public class CustomerLoginFrame extends JFrame implements ActionListener {
             if(pinTextField.getText().length() != 5)
                 throw new NumberFormatException();
 
-            this.account.setName(nameTextField.getText());
-            this.account.setAccountPin(pinTextField.getText());
+            controlCustomer.getCustomer().setName(nameTextField.getText());
+            controlCustomer.getCustomer().setAccountPin(pinTextField.getText());
 
-            if(!this.controlCustomer.isLoginSuccessful(this.account))
+            if(!controlCustomer.isLoginSuccessful(controlCustomer.getCustomer()))
                 JOptionPane.showMessageDialog(null, "log in failed: user was not found", "Error", JOptionPane.WARNING_MESSAGE);
 
             else {
                 this.setVisible(false);
                 this.dispose();
-                new CustomerMainFrame("Customer Main Menu", this.account);
+                new CustomerMainFrame("Customer Main Menu: " + controlCustomer.getCustomer().getName(), controlCustomer.getCustomer());
             }
 
         } catch (NumberFormatException ex) {

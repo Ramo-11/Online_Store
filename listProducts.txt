@@ -1,5 +1,15 @@
-d5214
+bf6c2
+Laptop
+2000.0
+HP Pavilion
+10
+re23c
 Car
-200000.0
-Acura TL 2021
+100000.0
+Acura TL 2006
+5
+fc8f4
+newProduct
+12.0
+something new
 2

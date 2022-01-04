@@ -1,8 +1,9 @@
 package Program;
 
 import java.util.Random;
+import java.io.*;
 
-public abstract class Account {
+public abstract class Account implements Serializable {
     String name;
     String accountNum;
     String accountPin;

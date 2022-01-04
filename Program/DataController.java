@@ -3,7 +3,7 @@ package Program;
 import java.io.*;
 import java.util.*;
 
-public class DataController {
+public class DataController implements Serializable {
     public void downloadAdminsData(ArrayList<Admin> admins) {
         String accountNum; 
         String name;
@@ -143,5 +143,41 @@ public class DataController {
         } catch (IOException e) {
             System.out.println(e.getMessage());
         } // End try catch    
+    }
+        public void downloadCartData(Customer customer) {
+            try{
+                FileInputStream file = new FileInputStream(customer.getName() + "Cart.txt");
+                ObjectInputStream in = new ObjectInputStream(file);
+    
+                ShoppingCart cart = new ShoppingCart();
+                cart = (ShoppingCart)in.readObject();
+
+                customer.setShoppingCart(cart);
+    
+                in.close();
+                file.close();
+    
+                System.out.println("Download is complete!\n");
+            } catch(IOException ex) {
+                System.out.println(ex.getMessage());
+            } catch(ClassNotFoundException ex){
+                System.out.println("Class not found exception has been caught");
+            } 
+        } // End downloadProductsData Method
+       
+        public void uploadCartData(Customer customer) {
+            try{
+                FileOutputStream file = new FileOutputStream(customer.getName() + "Cart.txt");
+                ObjectOutputStream out = new ObjectOutputStream(file);
+    
+                out.writeObject(customer.getShoppingCart());
+    
+                out.close();
+                file.close();
+    
+                System.out.println("Upload is complete!\n");
+            } catch(IOException ex) {
+                System.out.println("Exception has been caught");
+            }
     } // End uploadProductsData Method
 }

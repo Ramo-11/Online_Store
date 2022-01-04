@@ -59,9 +59,8 @@ public class Frame extends JFrame implements ActionListener {
         }
         
         else if(e.getSource() == customerLoginButton) {
-            Customer currentAccount = new Customer();
             CustomerController controlAccount = new CustomerController();
-            new CustomerLoginFrame("Get Credentials", currentAccount, controlAccount);
+            new CustomerLoginFrame("Get Credentials", controlAccount);
         }
 
         else if(e.getSource() == customerSignupButton) {

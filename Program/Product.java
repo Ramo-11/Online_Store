@@ -1,8 +1,9 @@
 package Program;
 
 import java.util.UUID;
+import java.io.*;
 
-public class Product {
+public class Product implements Serializable {
     String productID;
     String name;
     double price;

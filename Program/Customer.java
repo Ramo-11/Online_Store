@@ -1,8 +1,9 @@
 package Program;
 
 import java.util.ArrayList;
+import java.io.*;
 
-public class Customer extends Account {
+public class Customer extends Account implements Serializable {
     ShoppingCart cart;
     
     public Customer() {
@@ -22,6 +23,10 @@ public class Customer extends Account {
         cart = new ShoppingCart();
     }
 
+    public void setShoppingCart(ShoppingCart cart) {
+        this.cart = cart;
+    }
+    
     public ShoppingCart getShoppingCart() {
         return cart;
     }

@@ -1,8 +1,9 @@
 package Program;
 
 import java.util.*;
+import java.io.*;
 
-public class ShoppingCart {
+public class ShoppingCart implements Serializable {
     ArrayList<Product> products;
     
     public ShoppingCart() {
