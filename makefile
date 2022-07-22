@@ -96,6 +96,9 @@ Product.class:
 ShoppingCart.class:
 	javac -g Program/ShoppingCart.java
 
+jar: all
+	jar cfm OnlineStore.jar manifest.txt *.class GUI/Buttons/*.class GUI/Frames/AdminFrames/*.class GUI/Frames/CustomerFrames/*.class GUI/Frames/*.class Program/*.class
+
 clean:
 	rm *.class
 	rm GUI/Buttons/*.class
@@ -103,3 +106,4 @@ clean:
 	rm GUI/Frames/CustomerFrames/*.class
 	rm GUI/Frames/*.class
 	rm Program/*.class
+	rm OnlineStore.jar

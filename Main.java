@@ -1,4 +1,4 @@
-import GUI.Frames.MainFrame;
+import GUI.Frames.*;
 
 public class Main {
 
